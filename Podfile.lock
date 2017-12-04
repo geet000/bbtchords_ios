@@ -1,0 +1,25 @@
+PODS:
+  - Alamofire (4.5.1)
+  - Alamofire-Gloss (3.0.0):
+    - Alamofire-Gloss/Core (= 3.0.0)
+  - Alamofire-Gloss/Core (3.0.0):
+    - Alamofire (~> 4.5.1)
+    - Gloss (~> 2.0.0-beta.2)
+  - Gloss (2.0.0-beta.2)
+  - Toaster (2.1.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - Alamofire-Gloss
+  - Gloss
+  - Toaster
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Alamofire-Gloss: f9c8ec710889ba81e9004b1c90e026e09d8d2894
+  Gloss: ec2bc49c3d2db468581ced33d49c26117c7343af
+  Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
+
+PODFILE CHECKSUM: f9cab640408fb878a74fe442418578ed3454eb86
+
+COCOAPODS: 1.2.0
