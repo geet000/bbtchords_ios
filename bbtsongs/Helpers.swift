@@ -27,6 +27,8 @@ class Helpers{
                 completionHandler(songs)
             case .failure(let error):
                 viewController.hideActivityIndicator()
+                viewController.refreshControl.endRefreshing()
+                viewController.showAlertDialog(message: error.localizedDescription)
                 print("Error'd: \(error)")
             }
             

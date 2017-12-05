@@ -12,6 +12,7 @@ import UIKit
 class BaseViewController : UIViewController{
     var loadingView: UIView = UIView()
     var spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    public let refreshControl = UIRefreshControl()
     
     func showActivityIndicator() {
         DispatchQueue.main.async() {
@@ -38,5 +39,15 @@ class BaseViewController : UIViewController{
             self.spinner.stopAnimating()
             self.loadingView.removeFromSuperview()
         }
+    }
+    
+    func showAlertDialog(message:String){
+        var refreshAlert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
     }
 }

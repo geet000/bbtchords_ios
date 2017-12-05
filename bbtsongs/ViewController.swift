@@ -13,15 +13,14 @@ class ViewController: BaseViewController,UITableViewDataSource, UITableViewDeleg
     @IBOutlet var searchBar: UISearchBar!
     
     var data:[RepoSong]=[]
-    var filteredData: [RepoSong]=[]
-    private let refreshControl = UIRefreshControl()
+    var filteredData: [RepoSong]=[]    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if #available(iOS 10.0, *) {
-//            tableView.refreshControl = refreshControl
-//        } else {
-//            tableView.addSubview(refreshControl)
-//        }
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
         tableView.delegate=self
         tableView.dataSource=self
         searchBar.delegate = self
@@ -29,7 +28,7 @@ class ViewController: BaseViewController,UITableViewDataSource, UITableViewDeleg
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 10.0
         self.tableView.tableFooterView = UIView()
-        //refreshControl.addTarget(self, action: #selector(refreshSongs(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshSongs(_:)), for: .valueChanged)
         Helpers.webServiceRequest(url: Constants.WebServiceUrls.baseUrl, viewController: self){songs in
             print(songs.first?.name! ?? "")
             self.data=songs
@@ -41,7 +40,6 @@ class ViewController: BaseViewController,UITableViewDataSource, UITableViewDeleg
     }
 
     @objc private func refreshSongs(_ sender: Any) {
-        // Fetch Weather Data
         Helpers.webServiceRequest(url: Constants.WebServiceUrls.baseUrl, viewController: self){songs in
             print(songs.first?.name! ?? "")
             self.data=songs
@@ -83,10 +81,6 @@ class ViewController: BaseViewController,UITableViewDataSource, UITableViewDeleg
             let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChordsVC") as!  ChordsVC
             self.navigationController?.pushViewController(nextViewController, animated: true)
         }
-        
-//        ChordsVC.chords=data[indexPath.row].chords! ?? ""
-//        let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChordsVC") as!  ChordsVC
-//        self.navigationController?.pushViewController(nextViewController, animated: true)
         
     }
     

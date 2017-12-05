@@ -19,17 +19,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-test.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-testTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-testUITests.xcscheme</key>
+		<key>Pods-bbtsongs.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
